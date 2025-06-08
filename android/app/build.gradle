@@ -25,18 +25,22 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.codepluscircle.chatbotapp"
-    compileSdk = 34          // ✅ Usar versión estable compatible
+    compileSdk = 35          // ✅ Usar versión estable compatible
     ndkVersion = "25.1.8937393" // ✅ Puedes ajustar esto si tienes otra versión instalada
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+    jvmTarget = "17"
     }
 
     defaultConfig {
         applicationId = "com.codepluscircle.chatbotapp"
         minSdk = 21            // ✅ Compatible con la mayoría de dispositivos
-        targetSdk = 34         // ✅ Estable y soportada por Play Store
+        targetSdk = 35         // ✅ Estable y soportada por Play Store
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
     }
