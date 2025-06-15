@@ -18,15 +18,23 @@ This is a Flutter application that provides a conversational interface with an A
 - `flutter`: The core framework for building cross-platform mobile apps.
 - `cupertino_icons` (optional): Provides Cupertino icons for a more native-looking iOS style.
 - `flutter_dotenv` (optional): Enables loading environment variables from a `.env` file.
-- `flutter_markdown` : Allows displaying markdown content within your app.
+- `flutter_markdown`: Allows displaying markdown content within your app.
 - `flutter_spinkit` (optional): Provides various loading spinners for visual feedback.
+- `http`: A powerful HTTP client for making REST API requests.
 - `google_generative_ai`: Integrates with Google's generative AI services for chatbot functionality.
-- `hive`: A NoSQL database for storing app data locally.
-- `hive_flutter`: Provides Flutter-specific bindings for using Hive.
+- `hive`: A lightweight and fast NoSQL database for storing app data locally.
+- `hive_flutter`: Provides Flutter-specific bindings for using Hive with Flutter widgets.
 - `image_picker`: Enables picking images from the device's gallery or camera.
 - `path_provider`: Helps determine platform-specific file system paths for storing data.
 - `provider`: A state management solution for managing app data across widgets.
 - `uuid`: Generates Universally Unique Identifiers (UUIDs) for various purposes.
+- `firebase_core`: Required for initializing Firebase services within the app.
+- `firebase_auth`: Provides Firebase authentication services such as email/password and social logins.
+- `google_sign_in`: Enables Google Sign-In authentication integration.
+- `cloud_firestore`: A scalable NoSQL cloud database solution for storing and syncing app data in real-time.
+- `shared_preferences`: Allows storing simple key-value pairs persistently on the device.
+- `flutter_tts`: Enables text-to-speech capabilities within your Flutter app.
+
 
 ## Development Setup
 
