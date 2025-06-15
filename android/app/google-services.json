@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84760897002",
+    "project_id": "chatbotairi",
+    "storage_bucket": "chatbotairi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84760897002:android:11731d79b9652902d47e93",
+        "android_client_info": {
+          "package_name": "com.codebot.chatbotairiapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfw5t4y9pg1WllEIwxxvLDYsBagueQBiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,8 @@
 plugins {
     id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
@@ -24,7 +27,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.codepluscircle.chatbotapp"
+    namespace = "com.codebot.chatbotairiapp"
     compileSdk = 35          // ✅ Usar versión estable compatible
     ndkVersion = "25.1.8937393" // ✅ Puedes ajustar esto si tienes otra versión instalada
 
@@ -38,7 +41,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.codepluscircle.chatbotapp"
+        applicationId = "com.codebot.chatbotairiapp"
         minSdk = 21            // ✅ Compatible con la mayoría de dispositivos
         targetSdk = 35         // ✅ Estable y soportada por Play Store
         versionCode = flutterVersionCode.toInteger()

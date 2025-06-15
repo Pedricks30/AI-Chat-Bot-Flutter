@@ -59,7 +59,7 @@ class ChatHistoryWidget extends StatelessWidget {
                 // delete the chat history
                 await chat.delete();
               }
-            },
+            }, cancelText: '', onCancelPressed: (value) {  },
           );
         },
       ),

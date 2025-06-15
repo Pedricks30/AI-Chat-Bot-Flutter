@@ -5,6 +5,8 @@ import 'package:chatbotapp/utility/animated_dialog.dart';
 import 'package:chatbotapp/widgets/bottom_chat_field.dart';
 import 'package:chatbotapp/widgets/chat_messages.dart';
 import 'package:provider/provider.dart';
+import 'package:chatbotapp/providers/settings_provider.dart';
+import 'package:chatbotapp/services/tts_service.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -55,7 +57,7 @@ class _ChatScreenState extends State<ChatScreen> {
           appBar: AppBar(
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             centerTitle: true,
-            title: const Text('Chat with Gemini'),
+            title: const Text('Chat de terapia'),
             actions: [
               if (chatProvider.inChatMessages.isNotEmpty)
                 Padding(
@@ -67,14 +69,21 @@ class _ChatScreenState extends State<ChatScreen> {
                         // show my animated dialog to start new chat
                         showMyAnimatedDialog(
                           context: context,
-                          title: 'Start New Chat',
-                          content: 'Are you sure you want to start a new chat?',
-                          actionText: 'Yes',
+                          title: 'Comenzar nuevo chat',
+                          content: '¿Estás seguro de que quieres comenzar un nuevo chat?',
+                          actionText: 'Sí',
                           onActionPressed: (value) async {
                             if (value) {
                               // prepare chat room
                               await chatProvider.prepareChatRoom(
-                                  isNewChat: true, chatID: '');
+                                isNewChat: true, 
+                                chatID: '',
+                              );
+                            }
+                          }, cancelText: 'No',
+                          onCancelPressed: (value) {
+                            if (value) {
+                              Navigator.of(context).pop();
                             }
                           },
                         );
@@ -92,22 +101,47 @@ class _ChatScreenState extends State<ChatScreen> {
                   Expanded(
                     child: chatProvider.inChatMessages.isEmpty
                         ? const Center(
-                            child: Text('No messages yet'),
+                            child: Text('Aún no hay mensajes'),
                           )
                         : ChatMessages(
                             scrollController: _scrollController,
                             chatProvider: chatProvider,
                           ),
                   ),
-
                   // input field
                   BottomChatField(
-                    chatProvider: chatProvider,
+                    chatProvider: chatProvider, onSend: () { 
+                      // scroll to bottom after sending a message
+                      _scrollToBottom();
+                    },
                   )
                 ],
               ),
             ),
           ),
+            // Mover el botón a la parte inferior usando un Stack
+            bottomNavigationBar: Consumer<SettingsProvider>(
+            builder: (context, settingsProvider, child) {
+              if (settingsProvider.shouldSpeak) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 5.0, right: 5.0),
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FloatingActionButton(
+                  mini: true,
+                  onPressed: () => TTSService.stop(),
+                  child: const Icon(Icons.stop),
+                  tooltip: 'Detener voz',
+                  ),
+                ],
+                ),
+              );
+              }
+              return const SizedBox.shrink();
+            },
+            ),
+
         );
       },
     );

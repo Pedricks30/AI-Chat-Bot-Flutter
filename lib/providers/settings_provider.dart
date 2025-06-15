@@ -3,7 +3,7 @@ import 'package:chatbotapp/hive/boxes.dart';
 import 'package:chatbotapp/hive/settings.dart';
 
 class SettingsProvider extends ChangeNotifier {
-  bool _isDarkMode = false;
+  bool _isDarkMode = true;
   bool _shouldSpeak = false;
 
   bool get isDarkMode => _isDarkMode;
@@ -21,6 +21,10 @@ class SettingsProvider extends ChangeNotifier {
       _isDarkMode = settings!.isDarkTheme;
       _shouldSpeak = settings.shouldSpeak;
     }
+    else {  
+    // Si no hay configuraciones guardadas, usar modo oscuro por defecto  
+      _isDarkMode = true;  
+    }  
   }
 
   // toggle the dark mode

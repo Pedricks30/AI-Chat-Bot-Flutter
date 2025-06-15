@@ -11,12 +11,24 @@ class UserModel extends HiveObject {
   final String name;
 
   @HiveField(2)
-  final String image;
+  String? email;
+
+  @HiveField(3)
+  String image;
+
+  @HiveField(4)
+  String? displayName;
+
+  @HiveField(5)
+  String? provider;
 
   // constructor
   UserModel({
     required this.uid,
     required this.name,
+    this.email,
     required this.image,
+    this.displayName,
+    this.provider,
   });
 }

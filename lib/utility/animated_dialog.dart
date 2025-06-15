@@ -6,7 +6,7 @@ void showMyAnimatedDialog({
   required String title,
   required String content,
   required String actionText,
-  required Function(bool) onActionPressed,
+  required Function(bool) onActionPressed, required String cancelText, required Null Function(dynamic value) onCancelPressed,
 }) async {
   showGeneralDialog(
       context: context,
@@ -36,7 +36,7 @@ void showMyAnimatedDialog({
                       onActionPressed(false);
                       Navigator.of(context).pop();
                     },
-                    child: const Text('Cancel')),
+                    child: const Text('Cancelar')),
                 TextButton(
                     onPressed: () {
                       onActionPressed(true);
