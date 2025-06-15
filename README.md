@@ -21,7 +21,6 @@ This is a Flutter application that provides a conversational interface with an A
 - `flutter_markdown`: Allows displaying markdown content within your app.
 - `flutter_spinkit` (optional): Provides various loading spinners for visual feedback.
 - `http`: A powerful HTTP client for making REST API requests.
-- `google_generative_ai`: Integrates with Google's generative AI services for chatbot functionality.
 - `hive`: A lightweight and fast NoSQL database for storing app data locally.
 - `hive_flutter`: Provides Flutter-specific bindings for using Hive with Flutter widgets.
 - `image_picker`: Enables picking images from the device's gallery or camera.
